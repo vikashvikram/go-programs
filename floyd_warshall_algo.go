@@ -1,18 +1,18 @@
 package main
 
 import (
-    "bufio"
-    "fmt"
-    "strings"
-    "os"
-    "strconv"
-    //"math"
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+	//"math"
 )
 
 func check(e error) {
-    if e != nil {
-        panic(e)
-    }
+	if e != nil {
+		panic(e)
+	}
 }
 
 func min(v1, v2 int64) int64 {
@@ -53,7 +53,6 @@ func main() {
 
 	var matrix [1001][1001][1001]int64
 
-
 	for i := int64(1); i <= 1000; i++ {
 		for j := int64(1); j <= 1000; j++ {
 			if i == j {
@@ -73,12 +72,12 @@ func main() {
 
 	for z := 1; z <= count; z++ {
 		for x := 1; x <= count; x++ {
-			for y:= 1; y <= count; y++ {
+			for y := 1; y <= count; y++ {
 				a := matrix[x][y][z-1]
 				b := matrix[x][z][z-1]
 				c := matrix[z][y][z-1]
-				d := b+c
-				matrix[x][y][z] = min(a,d)
+				d := b + c
+				matrix[x][y][z] = min(a, d)
 				if x != y {
 					if z == count {
 						if minimum > matrix[x][y][z] {
@@ -88,7 +87,7 @@ func main() {
 						}
 					}
 				}
-		  }
+			}
 		}
 	}
 

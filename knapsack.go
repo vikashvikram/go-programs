@@ -1,17 +1,17 @@
 package main
 
 import (
-    "bufio"
-    "fmt"
-    "strings"
-    "os"
-    "strconv"
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func check(e error) {
-    if e != nil {
-        panic(e)
-    }
+	if e != nil {
+		panic(e)
+	}
 }
 
 func max(v1, v2 int64) int64 {
@@ -37,7 +37,7 @@ func main() {
 
 	//fmt.Println(twoD[0][0])
 	new2D := make([][]int64, twoD[0][1]+1)
-	
+
 	for y := range new2D {
 		new2D[y] = make([]int64, twoD[0][0]+1)
 	}
@@ -50,7 +50,7 @@ func main() {
 				new2D[x][y] = new2D[x-1][y]
 			} else {
 				val1 := new2D[x-1][y]
-				val2 := new2D[x-1][y - twoD[x][1]] + twoD[x][0]
+				val2 := new2D[x-1][y-twoD[x][1]] + twoD[x][0]
 				new2D[x][y] = max(val1, val2)
 			}
 		}

@@ -7,7 +7,7 @@ import "fmt"
 func fibonacci() func() int {
 	next := 1
 	current := 0
-	return func() int{
+	return func() int {
 		temp := current
 		current = next
 		next = temp + current
@@ -21,4 +21,3 @@ func main() {
 		fmt.Printf("fib(%v) = %v\n", i, f())
 	}
 }
-

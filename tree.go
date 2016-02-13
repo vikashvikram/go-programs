@@ -1,10 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"golang.org/x/tour/tree"
 	"sort"
-	"fmt"
 )
+
 // Walk walks the tree t sending all values
 // from the tree to the channel ch.
 func Walk(t *tree.Tree, ch chan int) {

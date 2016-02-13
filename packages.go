@@ -17,4 +17,3 @@ func main() {
 	fmt.Println("My favorite number is", r1.Intn(100))
 	fmt.Println("My favorite number is", r1.Intn(100))
 }
-

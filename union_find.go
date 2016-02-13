@@ -1,23 +1,23 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
-	"strings"
-	"bufio"
-	"strconv"
 	"sort"
+	"strconv"
+	"strings"
 )
 
 type union_find struct {
 	parent []int64
-	count []int64
+	count  []int64
 }
 
 func check(e error) {
-    if e != nil {
-        panic(e)
-    }
+	if e != nil {
+		panic(e)
+	}
 }
 
 func initialize(node_counts int64) union_find {
@@ -82,26 +82,25 @@ func main() {
 	}
 	var keys []int
 	for k := range dict {
-	    keys = append(keys, int(k))
+		keys = append(keys, int(k))
 	}
 	sort.Ints(keys)
 	uf := initialize(count)
 	for _, k := range keys {
-    j := len(dict[int64(k)])
-    for x := 0; x < j; x += 2 {
-    	val1 := dict[int64(k)][int64(x)]
-    	val2 := dict[int64(k)][int64(x+1)]
-    	if find(uf, val1) != find(uf, val2) {
-    		if clusters > 4 {
-    			union(uf, val1, val2)
-    		  clusters -= 1
-    		} else {
-    			fmt.Println("Key:", k)
-    			os.Exit(3)
-    		}
-    	}
-    }
-  }
-  
+		j := len(dict[int64(k)])
+		for x := 0; x < j; x += 2 {
+			val1 := dict[int64(k)][int64(x)]
+			val2 := dict[int64(k)][int64(x+1)]
+			if find(uf, val1) != find(uf, val2) {
+				if clusters > 4 {
+					union(uf, val1, val2)
+					clusters -= 1
+				} else {
+					fmt.Println("Key:", k)
+					os.Exit(3)
+				}
+			}
+		}
+	}
 
 }
